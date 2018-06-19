@@ -1,0 +1,148 @@
+{
+    "inports": [
+        {
+            "process": "Appear",
+            "port": "in"
+        }
+    ],
+    "outports": [
+        {
+            "process": "Disappear",
+            "port": "out"
+        }
+    ],
+    "processes": {
+        "Appear": {
+            "component": "Show"
+        },
+        "MoveRight": {
+            "component": "Move"
+        },
+        "Rotate": {
+            "component": "Rotate"
+        },
+        "ScaleIn": {
+            "component": "Scale"
+        },
+        "ScaleOut": {
+            "component": "Scale"
+        },
+        "MoveLeft": {
+            "component": "Move"
+        },
+        "Disappear": {
+            "component": "Show"
+        }
+    },
+    "connections": [
+        {
+            "data": true,
+            "tgt": {
+                "process": "Appear",
+                "port": "display"
+            }
+        },
+        {
+            "data": { "x": 180, "y": 10 },
+            "tgt": {
+                "process": "MoveRight",
+                "port": "position"
+            }
+        },
+        {
+            "data": { "x": -220, "y": -30 },
+            "tgt": {
+                "process": "MoveLeft",
+                "port": "position"
+            }
+        },
+        {
+            "data": 90,
+            "tgt": {
+                "process": "Rotate",
+                "port": "angle"
+            }
+        },
+        {
+            "data": 5,
+            "tgt": {
+                "process": "ScaleIn",
+                "port": "scale"
+            }
+        },
+        {
+            "data": 1,
+            "tgt": {
+                "process": "ScaleOut",
+                "port": "scale"
+            }
+        },
+        {
+            "data": false,
+            "tgt": {
+                "process": "Disappear",
+                "port": "display"
+            }
+        },
+        {
+            "src": {
+                "process": "Appear",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "MoveRight",
+                "port": "in"
+            }
+        },
+        {
+            "src": {
+                "process": "MoveRight",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "MoveLeft",
+                "port": "in"
+            }
+        },
+        {
+            "src": {
+                "process": "MoveRight",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "Rotate",
+                "port": "in"
+            }
+        },
+        {
+            "src": {
+                "process": "MoveLeft",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "ScaleIn",
+                "port": "in"
+            }
+        },
+        {
+            "src": {
+                "process": "ScaleIn",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "ScaleOut",
+                "port": "in"
+            }
+        },
+        {
+            "src": {
+                "process": "ScaleOut",
+                "port": "out"
+            },
+            "tgt": {
+                "process": "Disappear",
+                "port": "in"
+            }
+        }
+    ]
+}

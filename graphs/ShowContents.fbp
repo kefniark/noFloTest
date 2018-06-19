@@ -1,3 +1,0 @@
-INPORT=Async.IN:IN
-OUTPORT=Invert.OUT:OUT
-Async(core/RepeatAsync) OUT -> IN Invert(component-loader-example/Invert)

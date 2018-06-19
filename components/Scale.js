@@ -3,7 +3,7 @@ const noflo = require('noflo');
 exports.getComponent = () => {
     const c = new noflo.Component();
     c.inPorts.add('in', { datatype: 'object' });
-    c.inPorts.add('position', { datatype: 'object' });
+    c.inPorts.add('scale', { datatype: 'number' });
     c.outPorts.add('out', { datatype: 'object' });
 
     c.process((input, output) => {
@@ -12,14 +12,14 @@ exports.getComponent = () => {
         }
 
         const obj = input.getData('in');
-        const position = input.getData('position');
+        const scale = input.getData('scale');
         //const before = JSON.stringify(obj);
 
-        Fatina.tween(obj)
+        Fatina.tween(obj.scale)
             .to({
-                x: obj.x + position.x,
-                y: obj.y + position.y
-            }, 300)
+                x: scale,
+                y: scale
+            }, 600)
             .onComplete(() => output.sendDone(obj))
             .start();
     });

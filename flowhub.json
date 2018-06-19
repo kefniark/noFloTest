@@ -1,9 +1,9 @@
 {
   "id": "7d9959db-734b-44c2-99bb-8acfec3f4b25",
   "label": "noflotest NoFlo runtime",
-  "secret": "fuzegisuhu",
+  "secret": "some-password",
   "permissions": {
-    "fuzegisuhu": [
+    "some-password": [
       "protocol:component",
       "protocol:runtime",
       "protocol:graph",

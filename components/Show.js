@@ -13,11 +13,15 @@ exports.getComponent = () => {
 
         const obj = input.getData('in');
         const display = input.getData('display');
+        //const before = JSON.stringify(obj);
 
-        obj.visible = display;
-        setTimeout(() => {
-            output.sendDone(object);
-        }, 100);
+        console.log("show", display);
+        Fatina.tween(obj)
+            .to({
+                alpha: display ? 1 : 0
+            }, 500)
+            .onComplete(() => output.sendDone(obj))
+            .start();
     });
     return c;
 };
