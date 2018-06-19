@@ -52,6 +52,9 @@ module.exports = {
     },
     plugins: [
         new CopyWebpackPlugin([
+            { from: "node_modules/the-graph/dist", to: "dist" },
+            { from: "node_modules/the-graph/themes", to: "themes" },
+            { from: "node_modules/font-awesome", to: "font-awesome" },
             { from: "assets", to: "assets" },
             { from: "components", to: "components" },
             { from: "graphs", to: "graphs" },

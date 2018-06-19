@@ -1,148 +1,215 @@
 {
-    "inports": [
-        {
-            "process": "Appear",
-            "port": "in"
-        }
-    ],
-    "outports": [
-        {
-            "process": "Disappear",
-            "port": "out"
-        }
-    ],
-    "processes": {
-        "Appear": {
-            "component": "Show"
-        },
-        "MoveRight": {
-            "component": "Move"
-        },
-        "Rotate": {
-            "component": "Rotate"
-        },
-        "ScaleIn": {
-            "component": "Scale"
-        },
-        "ScaleOut": {
-            "component": "Scale"
-        },
-        "MoveLeft": {
-            "component": "Move"
-        },
-        "Disappear": {
-            "component": "Show"
-        }
+  "caseSensitive": false,
+  "properties": {
+    "name": "Animation Graph",
+    "description": "Small animation",
+    "icon": "file"
+  },
+  "inports": {
+    "in": {
+      "process": "Appear",
+      "port": "in",
+      "metadata": {
+        "x": -180,
+        "y": 0,
+        "width": 72,
+        "height": 72
+      }
+    }
+  },
+  "outports": {
+    "out": {
+      "process": "Disappear",
+      "port": "out",
+      "metadata": {
+        "x": 684,
+        "y": -72,
+        "width": 72,
+        "height": 72
+      }
+    }
+  },
+  "groups": [],
+  "processes": {
+    "Appear": {
+      "component": "Show",
+      "metadata": {
+        "x": -72,
+        "y": 0,
+        "width": 72,
+        "height": 72,
+        "label": "Appear"
+      }
     },
-    "connections": [
-        {
-            "data": true,
-            "tgt": {
-                "process": "Appear",
-                "port": "display"
-            }
-        },
-        {
-            "data": { "x": 180, "y": 10 },
-            "tgt": {
-                "process": "MoveRight",
-                "port": "position"
-            }
-        },
-        {
-            "data": { "x": -220, "y": -30 },
-            "tgt": {
-                "process": "MoveLeft",
-                "port": "position"
-            }
-        },
-        {
-            "data": 90,
-            "tgt": {
-                "process": "Rotate",
-                "port": "angle"
-            }
-        },
-        {
-            "data": 5,
-            "tgt": {
-                "process": "ScaleIn",
-                "port": "scale"
-            }
-        },
-        {
-            "data": 1,
-            "tgt": {
-                "process": "ScaleOut",
-                "port": "scale"
-            }
-        },
-        {
-            "data": false,
-            "tgt": {
-                "process": "Disappear",
-                "port": "display"
-            }
-        },
-        {
-            "src": {
-                "process": "Appear",
-                "port": "out"
-            },
-            "tgt": {
-                "process": "MoveRight",
-                "port": "in"
-            }
-        },
-        {
-            "src": {
-                "process": "MoveRight",
-                "port": "out"
-            },
-            "tgt": {
-                "process": "MoveLeft",
-                "port": "in"
-            }
-        },
-        {
-            "src": {
-                "process": "MoveRight",
-                "port": "out"
-            },
-            "tgt": {
-                "process": "Rotate",
-                "port": "in"
-            }
-        },
-        {
-            "src": {
-                "process": "MoveLeft",
-                "port": "out"
-            },
-            "tgt": {
-                "process": "ScaleIn",
-                "port": "in"
-            }
-        },
-        {
-            "src": {
-                "process": "ScaleIn",
-                "port": "out"
-            },
-            "tgt": {
-                "process": "ScaleOut",
-                "port": "in"
-            }
-        },
-        {
-            "src": {
-                "process": "ScaleOut",
-                "port": "out"
-            },
-            "tgt": {
-                "process": "Disappear",
-                "port": "in"
-            }
-        }
-    ]
+    "MoveRight": {
+      "component": "Move",
+      "metadata": {
+        "x": 36,
+        "y": -36,
+        "width": 72,
+        "height": 72,
+        "label": "MoveRight"
+      }
+    },
+    "Rotate": {
+      "component": "Rotate",
+      "metadata": {
+        "x": 180,
+        "y": -36,
+        "width": 72,
+        "height": 72,
+        "label": "Rotate"
+      }
+    },
+    "MoveLeft": {
+      "component": "Move",
+      "metadata": {
+        "x": 180,
+        "y": 72,
+        "width": 72,
+        "height": 72,
+        "label": "MoveLeft"
+      }
+    },
+    "Disappear": {
+      "component": "Show",
+      "metadata": {
+        "x": 540,
+        "y": -72,
+        "width": 72,
+        "height": 72,
+        "label": "Disappear"
+      }
+    },
+    "1gnc": {
+      "component": "Move",
+      "metadata": {
+        "label": "Move",
+        "x": 288,
+        "y": 72,
+        "width": 72,
+        "height": 72
+      }
+    },
+    "l9v": {
+      "component": "Rotate",
+      "metadata": {
+        "label": "Rotate",
+        "x": 540,
+        "y": 72,
+        "width": 72,
+        "height": 72
+      }
+    }
+  },
+  "connections": [
+    {
+      "src": {
+        "process": "Appear",
+        "port": "out"
+      },
+      "tgt": {
+        "process": "MoveRight",
+        "port": "in"
+      }
+    },
+    {
+      "src": {
+        "process": "MoveRight",
+        "port": "out"
+      },
+      "tgt": {
+        "process": "MoveLeft",
+        "port": "in"
+      }
+    },
+    {
+      "src": {
+        "process": "MoveRight",
+        "port": "out"
+      },
+      "tgt": {
+        "process": "Rotate",
+        "port": "in"
+      }
+    },
+    {
+      "src": {
+        "process": "MoveLeft",
+        "port": "out"
+      },
+      "tgt": {
+        "process": "1gnc",
+        "port": "in"
+      },
+      "metadata": {
+        "route": 0
+      }
+    },
+    {
+      "src": {
+        "process": "1gnc",
+        "port": "out"
+      },
+      "tgt": {
+        "process": "l9v",
+        "port": "in"
+      },
+      "metadata": {}
+    },
+    {
+      "src": {
+        "process": "1gnc",
+        "port": "out"
+      },
+      "tgt": {
+        "process": "Disappear",
+        "port": "in"
+      },
+      "metadata": {
+        "route": 0
+      }
+    },
+    {
+      "data": true,
+      "tgt": {
+        "process": "Appear",
+        "port": "display"
+      }
+    },
+    {
+      "data": {
+        "x": 180,
+        "y": 10
+      },
+      "tgt": {
+        "process": "MoveRight",
+        "port": "position"
+      }
+    },
+    {
+      "data": {
+        "x": -220,
+        "y": -30
+      },
+      "tgt": {
+        "process": "MoveLeft",
+        "port": "position"
+      }
+    },
+    {
+      "data": 90,
+      "tgt": {
+        "process": "Rotate",
+        "port": "angle"
+      }
+    },
+    {
+      "data": false,
+      "tgt": {
+        "process": "Disappear",
+        "port": "display"
+      }
+    }
+  ]
 }

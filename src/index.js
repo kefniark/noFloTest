@@ -35,8 +35,8 @@ const wrappedComponent = nofloLib.asCallback('Show', { baseDir: './' });
 // });
 
 // Play Graph
-// const wrappedGraph = nofloLib.asCallback('MyAnimation', { baseDir: './' });
-// console.log("Play Graph", wrappedGraph);
+const wrappedDynGraph = nofloLib.asCallback('animationGraph', { baseDir: './' });
+console.log("Play Graph", wrappedDynGraph);
 
 // const obj = {
 //     position: {x: 0, y: 0},
@@ -45,40 +45,40 @@ const wrappedComponent = nofloLib.asCallback('Show', { baseDir: './' });
 
 
 // Create graph animation
-const graph = nofloLib.graph.createGraph("animation");
+// const graph = nofloLib.graph.createGraph("animation");
 
 // create nodes
-graph.addNode("Appear", "Show");
-graph.addNode("MoveRight", "Move");
-graph.addNode("Rotate", "Rotate");
-graph.addNode("ScaleIn", "Scale");
-graph.addNode("ScaleOut", "Scale");
-graph.addNode("MoveLeft", "Move");
-graph.addNode("Disappear", "Show");
+// graph.addNode("Appear", "Show");
+// graph.addNode("MoveRight", "Move");
+// graph.addNode("Rotate", "Rotate");
+// graph.addNode("ScaleIn", "Scale");
+// graph.addNode("ScaleOut", "Scale");
+// graph.addNode("MoveLeft", "Move");
+// graph.addNode("Disappear", "Show");
 
-// connect nodes
-graph.addEdge("Appear", "out", "MoveRight", "in");
-graph.addEdge("MoveRight", "out", "MoveLeft", "in");
-graph.addEdge("MoveRight", "out", "Rotate", "in");
-graph.addEdge("MoveLeft", "out", "ScaleIn", "in");
-graph.addEdge("ScaleIn", "out", "ScaleOut", "in");
-graph.addEdge("ScaleOut", "out", "Disappear", "in");
+// // connect nodes
+// graph.addEdge("Appear", "out", "MoveRight", "in");
+// graph.addEdge("MoveRight", "out", "MoveLeft", "in");
+// graph.addEdge("MoveRight", "out", "Rotate", "in");
+// graph.addEdge("MoveLeft", "out", "ScaleIn", "in");
+// graph.addEdge("ScaleIn", "out", "ScaleOut", "in");
+// graph.addEdge("ScaleOut", "out", "Disappear", "in");
 
-// add initial value
-graph.addInport('in', 'Appear', 'in');
-graph.addOutport('out', 'Disappear', 'out');
+// // add initial value
+// graph.addInport('in', 'Appear', 'in');
+// graph.addOutport('out', 'Disappear', 'out');
 
-// set some hardcoded value
-graph.addInitial(true, "Appear", "display");
-graph.addInitial({ x: 180, y: 10 }, "MoveRight", "position");
-graph.addInitial({ x: -220, y: -30 }, "MoveLeft", "position");
-graph.addInitial(90, "Rotate", "angle");
-graph.addInitial(5, "ScaleIn", "scale");
-graph.addInitial(1, "ScaleOut", "scale");
-graph.addInitial(false, "Disappear", "display");
+// // set some hardcoded value
+// graph.addInitial(true, "Appear", "display");
+// graph.addInitial({ x: 180, y: 10 }, "MoveRight", "position");
+// graph.addInitial({ x: -220, y: -30 }, "MoveLeft", "position");
+// graph.addInitial(90, "Rotate", "angle");
+// graph.addInitial(5, "ScaleIn", "scale");
+// graph.addInitial(1, "ScaleOut", "scale");
+// graph.addInitial(false, "Disappear", "display");
 
-window.graph = graph;
-const wrappedDynGraph = nofloLib.asCallback(graph);
+// window.graph = graph;
+// const wrappedDynGraph = nofloLib.asCallback(graph);
 
 
 console.log("Play Dynamic Graph", wrappedDynGraph);

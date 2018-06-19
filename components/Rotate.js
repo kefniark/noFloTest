@@ -17,7 +17,7 @@ exports.getComponent = () => {
 
         Fatina.tween(obj)
             .to({
-                rotation: angle
+                rotation: obj.rotation + angle
             }, 300)
             .onComplete(() => output.sendDone(obj))
             .start();
