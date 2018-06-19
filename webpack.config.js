@@ -1,15 +1,31 @@
 var path = require("path");
+const HtmlWebPackPlugin = require("html-webpack-plugin");
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
-    entry: './index.js',
-    target: 'node',
+    entry: [
+        './webpack.entry.js',
+        './src/index.js'
+    ],
+    mode: 'development',
     output: {
       path: path.join(__dirname, "build"),
-      filename: 'example.bundle.js',
-      libraryTarget: 'commonjs',
+      filename: 'index.js'
+    },
+    node: {
+        child_process: 'empty',
+        fs: 'empty',
+    },
+    resolve: {
+        extensions: [ '.tsx', '.ts', '.coffee', '.js' ]
     },
     module: {
       rules: [
+        {
+            test: /\.tsx?$/,
+            use: 'ts-loader',
+            exclude: /node_modules/
+        },
         {
           test: /\.coffee$/,
           use: ['coffee-loader'],
@@ -25,13 +41,23 @@ module.exports = {
             {
               loader: 'noflo-component-loader',
               options: {
-                // Whether to include the original component sources
-                // in the build
+                graph: null,
                 debug: true,
+                baseDir: __dirname,
               },
             },
           ],
-        },
+        }
       ]
     },
+    plugins: [
+        new CopyWebpackPlugin([
+            { from: "components", to: "components" },
+            { from: "graphs", to: "graphs" },
+        ]),
+        new HtmlWebPackPlugin({
+          template: "./src/index.html",
+          filename: "./index.html"
+        })
+    ]
   };
